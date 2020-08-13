@@ -10,7 +10,30 @@
     left: 0;
 }
 
+.popup{
+  display: none;
+}
 
+.popupContainer{
+  align-items: center;
+  height: 300px;
+  width: 250px;
+  background: rgb(248, 153, 153);
+  border-radius: 5px;
+  position: relative;
+}
+
+input{
+  margin: 20px auto;
+  display: block;
+  width: 50%;
+  padding: 8px;
+  border: 1px solid grey
+}
+
+.standardButton{
+  margin-left: 2rem;
+}
 
 
 

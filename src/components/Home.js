@@ -14,6 +14,8 @@ import {
 
 import librarian from "../Pictures/librarian.png";
 import student from "../Pictures/students.jpg"
+// import {PopUp} from './PopUp'
+
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +32,9 @@ const useStyles = makeStyles({
   },
 });
 
+
+
+
 function Home() {
   const classes = useStyles();
   return (
@@ -38,13 +43,30 @@ function Home() {
         <img src={top} className="top" alt="top" />
       </header>
 
+
+      <div className= "popup">
+      <div class="popupContainer">
+      <input type="text" placeholder="Username" />
+      <input type="pass" placeholder="Password" />
+      <a href="/LMainPage" class="button"> Login</a>
+      </div>
+      </div>
+      <script>
+        document.getElementById("button").addEventListner("click", function()){
+          document.querySelector("popup")
+        }
+      </script>
+
+
+
+
       <Grid container item xs={12} spacing={4} justify="center">
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
               image={librarian}
-              title="Project1 Glimpse"
+              title="Pe"
             />
             <CardContent>
               <Typography gutterBottom variant="h3" component="h2">
@@ -54,8 +76,7 @@ function Home() {
           </CardActionArea>
           <CardActions>
             <a
-              href="https://github.com/HamaylAfzal/-Covid-19-Stats-Preview-website.git"
-              target="_https://github.com/HamaylAfzal/-Covid-19-Stats-Preview-website.git"
+              href="/LMainPage"
             >
               <Button onclick="" size="medium" variant="contained" color="secondary">
                 Click Me
@@ -64,12 +85,14 @@ function Home() {
           </CardActions>
         </Card>
 
+        
+        
         <Card className={classes.root}>
           <CardActionArea>
             <CardMedia
               className={classes.media}
               image={student}
-              title="Project1 Glimpse"
+              title="pi"
             />
             <CardContent>
               <Typography gutterBottom variant="h3" component="h2">
@@ -79,8 +102,7 @@ function Home() {
           </CardActionArea>
           <CardActions>
             <a
-              href="https://github.com/HamaylAfzal/-Covid-19-Stats-Preview-website.git"
-              target="_https://github.com/HamaylAfzal/-Covid-19-Stats-Preview-website.git"
+              href="/Slibrary"
             >
               <Button onclick="" size="medium" variant="contained" color="secondary">
                 Click Me
