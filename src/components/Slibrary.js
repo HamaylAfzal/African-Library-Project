@@ -1,51 +1,64 @@
-import React, { Component } from "react";
-import top from "../Pictures/top.png";
-import SearchArea from './SearchArea';
-import request from 'superagent'
-import BookList from './BookList'
-class Slibrary extends Component {
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import BookData from "./BookData";
 
-    constructor(props) {
-        super(props)
+const useStyles = makeStyles({
+  
+  table: {
+    minWidth: 800,
+    backgroundColor: 'coral',
+  },
+  table1: {
+   backgroundColor: 'red',
+   padding: 30,
+   fontWeight: 'bold',
+   fontSize: 20,
     
-        this.state = {
-             books: [],
-             searchField: ''
-        }
-    }
-    
-    searchBook = (e) => {
-      e.preventDefault();
-      request
-        .get("https://www.googleapis.com/books/v1/volumes?q=search+terms")
-        .query({ q: this.searchField})
-        .then((data) =>{
-          this.setState({ books: [...data.body.items]})
-        }
-        )
+  },
+});
 
-    }
+function Book(props) {
+  const classes = useStyles();
 
+  return (
+    <div>
+    <header className="head">WANT TO FIND SOMETHING?</header>
+      
+      
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow >
+              <TableCell className={classes.table1}>ID</TableCell>
+              <TableCell className={classes.table1}  align="right">Name</TableCell>
+              <TableCell className={classes.table1}  align="right">Author</TableCell>
+              <TableCell className={classes.table1}  align="right">Level</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {BookData.map((props) => (
+              <TableRow key={props.id}>
+                <TableCell component="th" scope="row">
+                  {props.id}
+                </TableCell>
 
-    handleSearch = (e) => {
-        this.setState({ searchField: e.target.value})
-    }
-
-
-  render() {
-    return (
-      <div>
-         <header>
-          <img src={top} className="top" alt="top" />
-        </header> 
-        <SearchArea searchBook={this.searchBook} handleSearch={this.handleSearch} />
-
-        <BookList books={this.state.books} />
-
-
-      </div>
-    );
-  }
+                <TableCell align="right">{props.Name}</TableCell>
+                <TableCell align="right">{props.Author}</TableCell>
+                <TableCell align="right">{props.Level}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>   
+    </div>
+  );
 }
 
-export default Slibrary
+export default Book;

@@ -38,3 +38,13 @@ input{
 .search-area{
   padding-top: 13rem;
 }
+
+
+.head{
+  font-size: 3rem;
+  align-items: center;
+  background-color:black ;
+  color: white;
+  height: 15vh;
+}
+

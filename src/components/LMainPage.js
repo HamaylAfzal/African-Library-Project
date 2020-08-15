@@ -7,6 +7,7 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
+  CardMedia,
   Button,
   Typography,
 } from "@material-ui/core";
@@ -14,6 +15,11 @@ import PropTypes from "prop-types";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import { useSpring, animated } from "react-spring/web.cjs";
+import portal from "../Pictures/portal.jpg"
+import Request from "../Pictures/Request.jpg"
+import lenf from "../Pictures/lenf.jpg"
+import directory from "../Pictures/directory.jpg"
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -99,6 +105,7 @@ function LMainPage() {
       <Grid container item xs={10} spacing={1} justify="center">
         <Card className={classes.root}>
           <CardActionArea>
+          <CardMedia className={classes.media} image={portal} title="Portal" />
             <CardContent style={{ backgroundColor: "blue" }}>
               <Typography gutterBottom variant="h4" component="h2">
                 Portal
@@ -121,6 +128,7 @@ function LMainPage() {
 
         <Card className={classes.root}>
           <CardActionArea>
+          <CardMedia className={classes.media} image={directory} title="Library Directory" />
             <CardContent style={{ backgroundColor: "green" }}>
               <Typography gutterBottom variant="h4" component="h1">
                 Library Directory
@@ -144,6 +152,7 @@ function LMainPage() {
 
         <Card className={classes.root}>
           <CardActionArea>
+          <CardMedia className={classes.media} image={lenf} title="Lend A Book" />
             <CardContent style={{ backgroundColor: "yellow" }}>
               <Typography gutterBottom variant="h4" component="h2">
                 Lend A Book
@@ -151,21 +160,22 @@ function LMainPage() {
             </CardContent>
           </CardActionArea>
           <CardActions style={{ justifyContent: "center", paddingTop: "3rem" }}>
-            <a href="/LMainPage">
               <Button
-                onclick=""
                 size="medium"
                 variant="contained"
                 color="secondary"
+                onClick={handleOpen}
+                
               >
                 Click Me
               </Button>
-            </a>
+            
           </CardActions>
         </Card>
 
         <Card className={classes.root}>
           <CardActionArea>
+          <CardMedia className={classes.media} image={Request} title="Request A Book" />
             <CardContent style={{ backgroundColor: "red" }}>
               <Typography gutterBottom variant="h4" component="h2">
                 Request A Book
@@ -173,22 +183,20 @@ function LMainPage() {
             </CardContent>
           </CardActionArea>
           <CardActions style={{ justifyContent: "center", paddingTop: "3rem" }}>
-            <a href="/LMainPage">
+            
               <Button
-                onclick=""
                 size="medium"
                 variant="contained"
                 color="secondary"
+                onClick={handleOpen1}
               >
                 Click Me
               </Button>
-            </a>
           </CardActions>
         </Card>
       </Grid>
 
       <div>
-        <button type="button" onClick={handleOpen}></button>
         <Modal
           id="modal12"
           aria-labelledby="spring-modal-title"
@@ -244,7 +252,6 @@ function LMainPage() {
       </div>
 
       <div>
-        <button type="button" onClick={handleOpen1}></button>
         <Modal
           aria-labelledby="spring-modal-title"
           aria-describedby="spring-modal-description"

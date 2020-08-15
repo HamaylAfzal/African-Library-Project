@@ -80,7 +80,7 @@ Fade.propTypes = {
   onExited: PropTypes.func,
 };
 
-function Home() {
+const Home = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -114,9 +114,9 @@ function Home() {
               size="medium"
               variant="contained"
               color="secondary"
-              data-toggle="modal"
-              data-target="#modal12"
+              onClick={handleOpen}
             >
+            
               Click Me
             </Button>
           </CardActions>
@@ -138,6 +138,7 @@ function Home() {
                 size="medium"
                 variant="contained"
                 color="secondary"
+                onClick={handleOpen}
               >
                 Click Me
               </Button>
@@ -147,11 +148,7 @@ function Home() {
       </Grid>
 
       <div>
-        <button type="button" onClick={handleOpen}>
-          
-        </button>
         <Modal
-          id="modal12"
           aria-labelledby="spring-modal-title"
           aria-describedby="spring-modal-description"
           className={classes.modal}

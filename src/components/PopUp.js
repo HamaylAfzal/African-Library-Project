@@ -1,7 +1,6 @@
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import React, {useState} from 'react'
-import './modal.css'
 
 function Example() {
     const [show, setShow] = useState(false);
